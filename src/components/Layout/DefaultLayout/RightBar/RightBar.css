@@ -1,0 +1,16 @@
+.right-bar-subtext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 50%;
+  color: #3ea6ff;
+}
+.contact li a{
+    padding-left: 6px;
+    color: #3ea6ff;
+
+}
+.contact li {
+    padding: 4px 0;
+}
