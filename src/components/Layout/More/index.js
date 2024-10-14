@@ -1,6 +1,3 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faBars } from '@fortawesome/free-solid-svg-icons';
-
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
@@ -8,8 +5,10 @@ function More() {
   return (
     <Tippy
       interactive
-      placement={'top-start'}
+      placement={'top'}
       // visible
+      // animation={'fade'}
+      trigger={'click'}
       render={(attrs) => (
         <div className="bg-neutral-800 w-60 rounded-md">
           <ul>
@@ -24,9 +23,6 @@ function More() {
         </div>
       )}
     >
-      {/* <span>
-        <FontAwesomeIcon className="icon" icon={faBars} />
-      </span> */}
       <span className="text w-full">Xem thêm</span>
     </Tippy>
   );

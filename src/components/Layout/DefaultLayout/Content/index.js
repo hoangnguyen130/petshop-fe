@@ -10,7 +10,7 @@ import User from '~/components/User';
 
 function Content() {
   return (
-    <div className="content-wrapper w-screen h-screen bg-black text-white ml-64 mr-96 px-40 py-4 relative">
+    <div className="content-wrapper w-screen min-h-screen -z-10 bg-black text-white ml-64 mr-96 px-40 py-4 relative">
       <div
         className="flex
         before:content-[''] before:absolute before:w-px before:h-screen before:top-0 before:left-auto before:right-0 before:bg-slate-300  before:opacity-20"

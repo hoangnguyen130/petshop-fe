@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faCompass, faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCompass, faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '~/assets/img/logo.png';
 import avt from '~/assets/img/avt.jpg';
 import './leftBar.css';
 import More from '../../More';
+import Search from '../../Search';
 
 function LeftBar() {
   return (
@@ -17,14 +18,14 @@ function LeftBar() {
       <span className="logo w-40 py-8 cursor-pointer">
         <img src={logo} alt="logo" />
       </span>
-      <ul className="left-bar-list text-white w-full">
+      <ul className="left-bar-list text-white w-full select-none">
         <li>
           <FontAwesomeIcon className="left-bar-icon" icon={faHouse} />
           <span className="text">Trang chủ</span>
         </li>
         <li>
           <FontAwesomeIcon className="left-bar-icon" icon={faMagnifyingGlass} />
-          <span className="text">Tìm kiếm</span>
+          <Search />
         </li>
         <li>
           <FontAwesomeIcon className="left-bar-icon" icon={faCompass} />
@@ -43,6 +44,9 @@ function LeftBar() {
           <span className="text">Trang cá nhân</span>
         </li>
         <li>
+          <div>
+            <FontAwesomeIcon className="left-bar-icon" icon={faBars} />
+          </div>
           <More />
         </li>
       </ul>
