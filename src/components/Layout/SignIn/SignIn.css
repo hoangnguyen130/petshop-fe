@@ -1,0 +1,84 @@
+.modal-wrapper {
+  position: relative;
+}
+.content-wrapper {
+  position: absolute;
+  top: 100px;
+  left: 37%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 20px 0;
+}
+.header-text {
+  font-size: 20px;
+  padding-top: 16px;
+  user-select: none;
+}
+.sub-text {
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.5;
+  user-select: none;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  margin: 28px 0;
+}
+.input > input {
+  font-size: 16px;
+  padding: 8px 40px;
+  margin: 8px 0;
+  border: 1px solid rgba(38, 38, 38, 0.2);
+  border-radius: 4px;
+  background-color: transparent;
+  &:focus {
+    border: 1px solid rgba(38, 38, 38, 0.5);
+  }
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  color: white;
+  background-color: #3ea6ff;
+  padding: 4px 20px;
+  margin: 0 auto;
+  border: 1px solid rgba(38, 38, 38, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(190, 186, 186, 0.5);
+    color: black;
+  }
+}
+.list {
+  display: flex;
+  margin: 12px 0;
+  align-items: center;
+  text-align: left;
+}
+.list > p {
+  padding-right: 4px;
+}
+.list > a {
+  padding: 0 8px;
+  font-size: 20px;
+}
+.check-text {
+  display: flex;
+  padding-bottom: 20px;
+}
+.register-text {
+  padding-left: 4px;
+  color: #3ea6ff;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
