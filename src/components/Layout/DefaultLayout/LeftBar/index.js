@@ -12,7 +12,7 @@ import Search from '../../Search';
 function LeftBar() {
   return (
     <div
-      className="wrapper flex flex-col items-center bg-black h-screen w-64 p-4 mr-px fixed
+      className="wrapper flex flex-col items-center bg-black h-screen w-64 p-4 mr-px fixed z-10
         before:content-[''] before:absolute before:w-px before:h-screen before:top-0 before:left-auto before:right-0 before:bg-slate-300  before:opacity-20"
     >
       <span className="logo w-40 py-8 cursor-pointer">

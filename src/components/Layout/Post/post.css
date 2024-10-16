@@ -1,0 +1,27 @@
+.content-icon{
+    font-size: 24px;
+    padding: 4px;
+    cursor: pointer;
+}
+.slick-prev {
+    left: 4px;
+}
+.slick-next {
+    right: 4px;
+}
+.slick-prev, .slick-next {
+    z-index: 5;
+}
+.slick-dots li.slick-active button:before {
+    color:White !important;
+    opacity: 0.9;
+}
+.slick-dots li button:before {
+    color:White !important;
+    top: -24px !important;
+    opacity: 0.4;
+}
+.slick-dots li {
+    margin: 0 !important;
+    width: 10px !important;
+}

@@ -4,7 +4,7 @@ import RightBar from "~/components/Layout/DefaultLayout/RightBar";
 
 function Home() {
     return ( 
-        <div className="flex flex-row">
+        <div>
             <LeftBar/>
             <Content/>
             <RightBar/>

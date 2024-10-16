@@ -46,7 +46,7 @@ function RightBar() {
   ];
 
   return (
-    <div className="fixed w-96 h-screen bg-black text-white right-0 p-4 pr-20">
+    <div className="fixed top-0 w-96 h-screen bg-black text-white right-0 p-4 pr-20">
       <div className="flex w-full">
         <div className="w-full">
           <User />

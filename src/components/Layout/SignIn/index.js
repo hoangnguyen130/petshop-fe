@@ -69,7 +69,7 @@ function SignInLayout() {
   if (registerForm) {
     return (
       <section className="modal-wrapper relative">
-        <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center min-w-96 h-auto border-solid border rounded-lg py-5">
+        <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center min-w-96 h-auto border-solid border-2 rounded-lg py-5">
           <h2 className="header-text w-full h-auto flex justify-center text-xl pt-4 select-none">Đăng Kí</h2>
           <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">Nhập thông tin của bạn!</p>
           <form onSubmit={handleSubmit}>
@@ -99,7 +99,7 @@ function SignInLayout() {
                 onChange={handleChangeRegister}
               />
               <input
-                className="password w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid  border-slate-300 "
+                className="password w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid  border-slate-300 rounded"
                 placeholder="Nhập lại mật khẩu"
                 name="confirmPassword"
                 type="password"
@@ -141,7 +141,7 @@ function SignInLayout() {
   } else
     return (
       <section className="modal-wrapper relative">
-        <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center w-96 h-auto border-solid border rounded-lg py-5">
+        <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center w-96 h-auto border-solid border-2 rounded-lg py-5">
           <h2 className="header-text w-full h-auto flex justify-center text-xl pt-4 select-none">Đăng nhập</h2>
           <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">Nhập tài khoản và mật khẩu của bạn!</p>
           <form onSubmit={handleSubmitLogin}>
