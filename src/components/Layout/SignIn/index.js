@@ -68,14 +68,14 @@ function SignInLayout() {
   };
   if (registerForm) {
     return (
-      <section className="modal-wrapper">
-        <div className="content-wrapper">
-          <h2 className="header-text">Đăng Kí</h2>
-          <p className="sub-text">Nhập thông tin của bạn!</p>
+      <section className="modal-wrapper relative">
+        <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center min-w-96 h-auto border-solid border rounded-lg py-5">
+          <h2 className="header-text w-full h-auto flex justify-center text-xl pt-4 select-none">Đăng Kí</h2>
+          <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">Nhập thông tin của bạn!</p>
           <form onSubmit={handleSubmit}>
-            <div className="input">
+            <div className="input flex flex-col justify-center items-center w-full h-auto my-7">
               <input
-                className="user-name"
+                className="user-name w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid border-slate-300 rounded "
                 placeholder="Tên người dùng"
                 name="name"
                 type="text"
@@ -83,7 +83,7 @@ function SignInLayout() {
                 onChange={handleChangeRegister}
               />
               <input
-                className="email"
+                className="email w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid  border-slate-300 rounded "
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -91,7 +91,7 @@ function SignInLayout() {
                 onChange={handleChangeRegister}
               />
               <input
-                className="password"
+                className="password w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid  border-slate-300 rounded"
                 placeholder="Mật khẩu"
                 name="password"
                 type="password"
@@ -99,7 +99,7 @@ function SignInLayout() {
                 onChange={handleChangeRegister}
               />
               <input
-                className="password"
+                className="password w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid  border-slate-300 "
                 placeholder="Nhập lại mật khẩu"
                 name="confirmPassword"
                 type="password"
@@ -107,11 +107,14 @@ function SignInLayout() {
                 onChange={handleChangeRegister}
               />
             </div>
-            <button className="login-button" type="submit">
+            <button
+              className="login-button transition delay-100 w-full text-white px-5 py-2 my-0 mx-auto border border-solid  border-slate-300 rounded cursor-pointer hover:bg-red-500 hover:text-black"
+              type="submit"
+            >
               Đăng kí
             </button>
           </form>
-          <div className="list">
+          <div className="list flex h-auto my-3 items-center text-left">
             <span>
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
@@ -126,9 +129,9 @@ function SignInLayout() {
               />
             </span>
           </div>
-          <div className="check-text">
+          <div className="check-text flex pb-5">
             <p className="select-none">Đã có tài khoản?</p>
-            <p className="register-text" onClick={handleShowSignUp}>
+            <p className="register-text transition delay-100 font-medium pl-1 cursor-pointer hover:text-black" onClick={handleShowSignUp}>
               Đăng nhập
             </p>
           </div>
@@ -137,14 +140,14 @@ function SignInLayout() {
     );
   } else
     return (
-      <section className="modal-wrapper">
-        <div className="content-wrapper">
-          <h2 className="header-text">Đăng nhập</h2>
-          <p className="sub-text">Nhập tài khoản và mật khẩu của bạn!</p>
+      <section className="modal-wrapper relative">
+        <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center w-96 h-auto border-solid border rounded-lg py-5">
+          <h2 className="header-text w-full h-auto flex justify-center text-xl pt-4 select-none">Đăng nhập</h2>
+          <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">Nhập tài khoản và mật khẩu của bạn!</p>
           <form onSubmit={handleSubmitLogin}>
-            <div className="input">
+            <div className="input flex flex-col justify-center items-center w-full h-auto my-7">
               <input
-                className="email"
+                className="email w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid border-slate-300 rounded"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -152,7 +155,7 @@ function SignInLayout() {
                 onChange={handleChangeLogin}
               />
               <input
-                className="password"
+                className="password w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid border-slate-300 rounded"
                 placeholder="Mật khẩu"
                 name="password"
                 type="password"
@@ -160,18 +163,15 @@ function SignInLayout() {
                 onChange={handleChangeLogin}
               />
             </div>
-            <button className="login-button" type="submit">
+            <button className="login-button transition delay-100 w-full text-white px-5 py-2 my-0 mx-auto border border-solid  border-slate-300 rounded cursor-pointer hover:bg-red-500 hover:text-black" type="submit">
               Đăng nhập
             </button>
           </form>
-          <a href="#!" className="sub-text">
+          <a href="#!" className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">
             Quên mật khẩu?
           </a>
-          <div className="list">
-            {/* <a href="#!">
-                        <FontAwesomeIcon icon={faFacebook}/>
-                    </a> */}
-            <div className="w-full">
+          <div className="list flex h-auto my-3 items-center text-left">
+            <div>
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
                   const decoded = jwtDecode(credentialResponse?.credential);
@@ -185,9 +185,9 @@ function SignInLayout() {
               />
             </div>
           </div>
-          <div className="check-text">
+          <div className="check-text flex pb-5">
             <p className="select-none">Chưa có tài khoản?</p>
-            <p className="register-text" onClick={handleRegister}>
+            <p className="register-text transition delay-100 font-medium pl-1 cursor-pointer hover:text-black" onClick={handleRegister}>
               Đăng kí
             </p>
           </div>
