@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faCompass, faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCirclePlus, faCompass, faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '~/assets/img/logo.png';
 import avt from '~/assets/img/avt.jpg';
@@ -38,6 +38,10 @@ function LeftBar() {
         <li>
           <FontAwesomeIcon className="left-bar-icon" icon={faHeart} />
           <span className="text">Thông báo</span>
+        </li>
+        <li>
+          <FontAwesomeIcon className="left-bar-icon" icon={faCirclePlus} />
+          <span className="text">Tạo bài viết</span>
         </li>
         <li>
           <img src={avt} alt="logo" className="w-6 rounded-lg" />
