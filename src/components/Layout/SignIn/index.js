@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-// import axios from "axios";
+import axios from 'axios';
 
 import './SignIn.css';
 
@@ -13,10 +13,10 @@ function SignInLayout() {
   const navigate = useNavigate();
 
   const initValue = {
-    name: '',
+    userName: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    // confirmPassword: ''
   };
   const initLoginValue = {
     email: '',
@@ -24,21 +24,12 @@ function SignInLayout() {
   };
   const [registerForm, setRegisterForm] = useState(false);
 
-  const [formValue, setFormValue] = useState(initValue);
+  const [formRegisterValue, setFormRegisterValue] = useState(initValue);
   const [formLoginValue, setFormLoginValue] = useState(initLoginValue);
 
-  // const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
-  // console.log(user)
-  // useEffect(() => {
-  //     axios
-  //         .post(`http://localhost:3001/v1/auth/register`, formValue)
-  //         .then((res) => {
-  //             setUser(res)
-  //         })
-  // }, [formValue])
-
-  const handleRegister = () => {
+  const handleShowRegister = () => {
     setRegisterForm(true);
   };
   const handleShowSignUp = () => {
@@ -46,8 +37,8 @@ function SignInLayout() {
   };
   const handleChangeRegister = (event) => {
     const { value, name } = event.target;
-    setFormValue({
-      ...formValue,
+    setFormRegisterValue({
+      ...formRegisterValue,
       [name]: value,
     });
   };
@@ -58,28 +49,44 @@ function SignInLayout() {
       [name]: value,
     });
   };
-  const handleSubmit = (event) => {
+  const handleSubmitRegister = async (event) => {
     event.preventDefault();
-    console.log(formValue);
+    try {
+      await axios.post(`http://localhost:3001/v1/auth/register`, formRegisterValue).then((res) => {
+        setUser(res);
+      });
+      navigate('/');
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
-  const handleSubmitLogin = (event) => {
+  const handleSubmitLogin = async (event) => {
     event.preventDefault();
-    console.log(formLoginValue);
+    try {
+      await axios.post(`http://localhost:3001/v1/auth/login`, formLoginValue).then((res) => {
+        setUser(res);
+      });
+      navigate('/');
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
   if (registerForm) {
     return (
       <section className="modal-wrapper relative">
         <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center min-w-96 h-auto border-solid border-2 rounded-lg py-5">
           <h2 className="header-text w-full h-auto flex justify-center text-xl pt-4 select-none">Đăng Kí</h2>
-          <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">Nhập thông tin của bạn!</p>
-          <form onSubmit={handleSubmit}>
+          <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">
+            Nhập thông tin của bạn!
+          </p>
+          <form onSubmit={handleSubmitRegister}>
             <div className="input flex flex-col justify-center items-center w-full h-auto my-7">
               <input
                 className="user-name w-full h-auto size-4 pt-2 pr-16 pb-2 pl-5 my-2 border border-solid border-slate-300 rounded "
                 placeholder="Tên người dùng"
-                name="name"
+                name="userName"
                 type="text"
-                value={formValue.name}
+                value={formRegisterValue.userName}
                 onChange={handleChangeRegister}
               />
               <input
@@ -87,7 +94,7 @@ function SignInLayout() {
                 placeholder="Email"
                 name="email"
                 type="email"
-                value={formValue.email}
+                value={formRegisterValue.email}
                 onChange={handleChangeRegister}
               />
               <input
@@ -95,7 +102,7 @@ function SignInLayout() {
                 placeholder="Mật khẩu"
                 name="password"
                 type="password"
-                value={formValue.password}
+                value={formRegisterValue.password}
                 onChange={handleChangeRegister}
               />
               <input
@@ -103,8 +110,8 @@ function SignInLayout() {
                 placeholder="Nhập lại mật khẩu"
                 name="confirmPassword"
                 type="password"
-                value={formValue.confirmPassword}
-                onChange={handleChangeRegister}
+                // value={formRegisterValue.confirmPassword}
+                // onChange={handleChangeRegister}
               />
             </div>
             <button
@@ -131,7 +138,10 @@ function SignInLayout() {
           </div>
           <div className="check-text flex pb-5">
             <p className="select-none">Đã có tài khoản?</p>
-            <p className="register-text transition delay-100 font-medium pl-1 cursor-pointer hover:text-black" onClick={handleShowSignUp}>
+            <p
+              className="register-text transition delay-100 font-medium pl-1 cursor-pointer hover:text-black"
+              onClick={handleShowSignUp}
+            >
               Đăng nhập
             </p>
           </div>
@@ -143,7 +153,9 @@ function SignInLayout() {
       <section className="modal-wrapper relative">
         <div className="content-wrapper absolute top-24 left-1/3 flex flex-col items-center w-96 h-auto border-solid border-2 rounded-lg py-5">
           <h2 className="header-text w-full h-auto flex justify-center text-xl pt-4 select-none">Đăng nhập</h2>
-          <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">Nhập tài khoản và mật khẩu của bạn!</p>
+          <p className="sub-text w-full h-auto flex justify-center mt-3 text-sm opacity-50 select-none">
+            Nhập tài khoản và mật khẩu của bạn!
+          </p>
           <form onSubmit={handleSubmitLogin}>
             <div className="input flex flex-col justify-center items-center w-full h-auto my-7">
               <input
@@ -163,7 +175,10 @@ function SignInLayout() {
                 onChange={handleChangeLogin}
               />
             </div>
-            <button className="login-button transition delay-100 w-full text-white px-5 py-2 my-0 mx-auto border border-solid  border-slate-300 rounded cursor-pointer hover:bg-red-500 hover:text-black" type="submit">
+            <button
+              className="login-button transition delay-100 w-full text-white px-5 py-2 my-0 mx-auto border border-solid  border-slate-300 rounded cursor-pointer hover:bg-red-500 hover:text-black"
+              type="submit"
+            >
               Đăng nhập
             </button>
           </form>
@@ -187,7 +202,10 @@ function SignInLayout() {
           </div>
           <div className="check-text flex pb-5">
             <p className="select-none">Chưa có tài khoản?</p>
-            <p className="register-text transition delay-100 font-medium pl-1 cursor-pointer hover:text-black" onClick={handleRegister}>
+            <p
+              className="register-text transition delay-100 font-medium pl-1 cursor-pointer hover:text-black"
+              onClick={handleShowRegister}
+            >
               Đăng kí
             </p>
           </div>

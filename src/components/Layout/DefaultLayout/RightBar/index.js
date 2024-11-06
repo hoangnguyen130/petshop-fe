@@ -6,7 +6,7 @@ import './RightBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-function RightBar() {
+function  RightBar() {
   const list_users = [
     {
       id: '1',

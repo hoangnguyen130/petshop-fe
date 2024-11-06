@@ -41,7 +41,7 @@ function Post() {
       <div className="imgs">
         <Slider {...settings}>
           {listImg.map((item ,i) => (
-            <img src={item} alt="content-img" className="content-img rounded" />
+            <img key={i} src={item} alt="content-img" className="content-img rounded" />
           ))}
         </Slider>
       </div>
